@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Card = ({ icon: Icon, color, text }) => {
+function Card({ icon: Icon, color, text }) {
   return (
     <div className="flex flex-col items-start gap-3 p-5 bg-white rounded-2xl shadow-xl w-64">
       <div className={`p-2 rounded-full bg-opacity-10 ${color}`}>
@@ -11,6 +12,16 @@ const Card = ({ icon: Icon, color, text }) => {
       </p>
     </div>
   );
+}
+
+Card.propTypes = {
+  icon: PropTypes.elementType.isRequired,
+  color: PropTypes.string,
+  text: PropTypes.string.isRequired,
+};
+
+Card.defaultProps = {
+  color: 'bg-blue-500',
 };
 
 export default Card;

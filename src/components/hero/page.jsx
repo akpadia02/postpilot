@@ -1,7 +1,7 @@
 import React from 'react';
 import { MessageCircle, Linkedin, Mail, Instagram } from 'lucide-react';
 import AboveCard from '../AboveCard';
-import Card from '../card';
+import Card from '../Card'
 import { Link } from 'react-router-dom'; // Import Link
 
 function Hero() {
