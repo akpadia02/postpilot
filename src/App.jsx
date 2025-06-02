@@ -8,9 +8,6 @@ import Hero from './components/Hero';
 
 
 export default function App() {
-
-
-function App() {
   return (
     <>
       <div className="flex h-screen">
