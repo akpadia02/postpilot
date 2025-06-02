@@ -18,9 +18,9 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
   },
   server: {
-    historyApiFallback: true // ✅ This fixes dev server routing
-  }
+    // Vite SPA fallback is automatic for `index.html` on 404s during dev.
+  },
 });
