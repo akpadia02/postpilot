@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'; // Import Link
 
 function Hero() {
   return (
-    <div className="bg-white mt-45">
+    <div className="bg-white md:mt-45 mt-0">
       <div>
         <AboveCard />
       </div>
