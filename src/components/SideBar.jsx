@@ -49,13 +49,13 @@ function Sidebar() {
         ${open ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}
       >
         {/* Logo */}
-        <a href='/' className='mb-10'>
+        <Link to='/' className='mb-10'>
           <img
             src='/assets/postpilot.png'
             alt='logo'
             className='h-30 w-40 object-contain'
           />
-        </a>
+        </Link>
 
         {/* Menu */}
         <ul className='flex flex-col gap-6 flex-1'>
