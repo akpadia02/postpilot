@@ -4,7 +4,7 @@ import React from 'react';
 
 function Sidebar() {
   const menuList = [
-    { name: "Home", link: "/", icon: <Home className='h-5 w-5' /> },
+    { name: "Home", link: "/hero", icon: <Home className='h-5 w-5' /> },
     // { name: "Know Us", link: "/about", icon: <Info className='h-5 w-5' /> },
     { name: "Email", link: "/email", icon: <Mail className='h-5 w-5' /> },
     { name: "WhatsApp", link: "/whatsapp", icon: <MessageSquare className='h-5 w-5' /> },

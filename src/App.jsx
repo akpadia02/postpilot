@@ -4,7 +4,7 @@ import Sidebar from './components/SideBar';
 import WhatsApp from './components/whatsapp/page';
 import LinkedIn from './components/linkedIn/page';
 import Instagram from './components/instagram/page';
-import Hero from './components/Hero';
+import Hero from './components/hero/page';
 
 
 export default function App() {
@@ -12,9 +12,11 @@ export default function App() {
     <>
       <div className="flex h-screen">
         <Sidebar />
-        <Hero />
+        {/* <Hero /> */}
         <div className="flex-1 p-4 overflow-y-auto">
           <Routes>
+            <Route path='/' element={<Hero />} />
+            <Route path='/hero' element={<Hero />} />
             <Route path="/email" element={<Email />} />
             <Route path="/whatsapp" element={<WhatsApp />} />
             <Route path="/linkedin" element={<LinkedIn />} />
