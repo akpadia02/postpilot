@@ -8,6 +8,7 @@ import {
   X,
 } from 'lucide-react';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Sidebar() {
   const [open, setOpen] = useState(false);
@@ -71,7 +72,7 @@ export default Sidebar;
 
 function Tab({ item }) {
   return (
-    <a href={item.link} className='group relative flex items-center justify-center'>
+    <Link to={item.link} className='group relative flex items-center justify-center'>
       <li className='w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-all'>
         {item.icon}
         {/* Tooltip */}
@@ -79,6 +80,6 @@ function Tab({ item }) {
           {item.name}
         </span> */}
       </li>
-    </a>
+    </Link>
   );
 }
