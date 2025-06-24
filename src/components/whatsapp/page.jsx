@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import PostNowButton from "../PostNowButton";
+
 
 function WhatsApp() {
   const [formData, setFormData] = useState({
@@ -168,22 +170,27 @@ function WhatsApp() {
       </form>
 
       {output && (
-        <div className="mt-6 p-4 bg-gray-50 border rounded-lg">
-          <h3 className="text-lg font-semibold mb-2 text-green-700">📩 Your Message:</h3>
-          <p className="whitespace-pre-wrap">{output}</p>
+  <div className="mt-6 p-4 bg-gray-50 border rounded-lg">
+    <h3 className="text-lg font-semibold mb-2 text-green-700">📩 Your Message:</h3>
+    <p className="whitespace-pre-wrap">{output}</p>
 
-          <div className="text-right mt-4">
-            <a
-              href={`https://wa.me/?text=${encodeURIComponent(output)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block text-sm bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-            >
-              📲 Open in WhatsApp
-            </a>
-          </div>
-        </div>
-      )}
+    <div className="flex justify-end space-x-4 mt-4">
+      {/* Open in WhatsApp (mobile-friendly link) */}
+      <a
+        href={`https://wa.me/?text=${encodeURIComponent(output)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block text-sm bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+      >
+        📲 Open in WhatsApp
+      </a>
+
+      {/* Post via Chrome Extension */}
+      {/* <PostNowButton platform="WhatsApp" content={output} /> */}
+    </div>
+  </div>
+)}
+
     </div>
   );
 }

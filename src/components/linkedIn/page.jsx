@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import PostNowButton from "../PostNowButton";
 
 function LinkedIn() {
   const [formData, setFormData] = useState({
@@ -10,13 +11,62 @@ function LinkedIn() {
     length: "Medium",
   });
 
+  const [output, setOutput] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("LinkedIn post form:", formData);
+    setOutput("");
+    setLoading(true);
+
+    const { topic, audience, objective, length } = formData;
+
+    const prompt = `
+      Write a ${length.toLowerCase()} LinkedIn post.
+      Target audience: ${audience}.
+      Objective: ${objective}.
+      Topic: ${topic}.
+      Keep it professional, engaging, and relevant.
+    `;
+
+    try {
+      const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_OPENROUTER_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "mistralai/mistral-7b-instruct:free",
+          messages: [
+            {
+              role: "system",
+              content: "You are a professional LinkedIn content writer. Write impactful, valuable posts for working professionals.",
+            },
+            {
+              role: "user",
+              content: prompt.trim(),
+            },
+          ],
+        }),
+      });
+
+      const data = await res.json();
+      if (!data.choices || !data.choices[0]) {
+        setOutput("❌ Failed to generate post. Try again.");
+      } else {
+        setOutput(data.choices[0].message.content.trim());
+      }
+    } catch (error) {
+      console.error(error);
+      setOutput("❌ Error reaching OpenRouter.");
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -33,6 +83,7 @@ function LinkedIn() {
             onChange={handleChange}
             className="w-full p-3 border rounded-lg"
             placeholder="e.g. AI in Hiring, Career Advice"
+            required
           />
         </div>
 
@@ -81,11 +132,25 @@ function LinkedIn() {
         </div>
 
         <div className="text-center">
-          <button className="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800">
-            Generate LinkedIn Post
+          <button
+            type="submit"
+            disabled={loading}
+            className="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 disabled:opacity-50"
+          >
+            {loading ? "Generating..." : "Generate LinkedIn Post"}
           </button>
         </div>
       </form>
+
+      {output && (
+        <div className="mt-6 p-4 bg-gray-50 border rounded-lg">
+          <h3 className="text-lg font-semibold mb-2 text-blue-700">📝 Your LinkedIn Post:</h3>
+          <p className="whitespace-pre-wrap mb-4">{output}</p>
+
+          {/* PostNowButton to trigger Chrome extension */}
+          <PostNowButton platform="LinkedIn" content={output} />
+        </div>
+      )}
     </div>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import PostNowButton from '../PostNowButton';
+
 
 function Instagram() {
   const [formData, setFormData] = useState({
@@ -141,12 +143,23 @@ function Instagram() {
         </div>
       </form>
 
-      {output && (
+      {/* {output && (
         <div className="mt-6 p-4 bg-gray-50 border rounded-lg">
           <h3 className="text-lg font-semibold mb-2 text-pink-600">🎀 Your Caption:</h3>
           <p className="whitespace-pre-wrap">{output}</p>
         </div>
-      )}
+      )} */}
+      {output && (
+  <div className="mt-6 p-4 bg-gray-50 border rounded-lg">
+    <h3 className="text-lg font-semibold mb-2 text-pink-600">🎀 Your Caption:</h3>
+    <p className="whitespace-pre-wrap">{output}</p>
+    
+    {/* Add this */}
+    <PostNowButton platform="Instagram" content={output} />
+  </div>
+)}
+
+
     </div>
   );
 }

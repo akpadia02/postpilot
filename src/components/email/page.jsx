@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import Sidebar from "../SideBar";
+import PostNowButton from "../PostNowButton";
+
 
 function Email() {
   const [formData, setFormData] = useState({
@@ -164,11 +165,16 @@ Make the email well-structured with a clear subject line, opening greeting (usin
 
       {/* Output Display */}
       {output && (
-        <div className="mt-6 p-4 bg-gray-50 border rounded-lg">
-          <h3 className="text-lg font-semibold mb-2 text-blue-600">📧 Suggested Email:</h3>
-          <pre className="whitespace-pre-wrap">{output}</pre>
-        </div>
-      )}
+  <div className="mt-6 p-4 bg-gray-50 border rounded-lg">
+    <h3 className="text-lg font-semibold mb-2 text-blue-600">📧 Suggested Email:</h3>
+    <pre className="whitespace-pre-wrap mb-4">{output}</pre>
+
+    <div className="text-right">
+      <PostNowButton platform="Gmail" content={output} />
+    </div>
+  </div>
+)}
+
     </div>
   );
 }
