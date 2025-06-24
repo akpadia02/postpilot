@@ -10,7 +10,7 @@ import Hero from './components/hero/page';
 export default function App() {
   return (
     <>
-    <Router>
+    
       <div className="flex h-screen">
         <Sidebar />
         {/* <Hero /> */}
@@ -26,7 +26,7 @@ export default function App() {
           </Routes>
         </div>
       </div>
-    </Router>
+    
     </>
   );
 }
