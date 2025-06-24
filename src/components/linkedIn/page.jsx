@@ -71,7 +71,9 @@ function LinkedIn() {
 
   return (
     <div className="max-w-2xl mx-auto p-6 mt-10 bg-white shadow-xl rounded-xl">
-      <h1 className="text-2xl font-semibold mb-6 text-center text-blue-800">💼 Generate LinkedIn Post</h1>
+      <h1 className="text-2xl font-semibold mb-6 text-center text-blue-800">
+        💼 Generate LinkedIn Post
+      </h1>
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
