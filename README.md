@@ -1,12 +1,64 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# 🚀 PostPilot – AI Social Media Content Generator
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**PostPilot** is an AI-powered tool that generates personalized content for multiple social media platforms including **LinkedIn**, **Instagram**, **WhatsApp**, and **Gmail**. With an integrated **Firefox Extension**, users can copy and post content with a single click — making social content creation faster and easier.
 
-## Expanding the ESLint configuration
+<p align="center">
+  <img src="./public/assets/postpilot.png" alt="PostPilot Logo" width="120" />
+</p>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<p align="center">
+  <a href="https://postpilot-nu.vercel.app/">🔗 Live Demo</a> • 
+  <a href="https://github.com/akshaypadia/postpilot">📂 GitHub Repo</a>
+</p>
+---
+
+## 🔧 Technologies Used
+
+- **Frontend**: React + Vite  
+- **Styling**: Tailwind CSS  
+- **AI Model**: Mistral-7B  
+- **Browser Extension**: Firefox Add-on (Manifest V3)  
+- **Deployment**: Vercel  
+
+---
+
+## ✨ Features
+
+- 🔮 AI-generated content tailored by:
+  - **Tone** (formal, casual, witty, etc.)
+  - **Length** (short, medium, long)
+  - **Platform** (LinkedIn, Instagram, WhatsApp, Gmail)
+
+- ⚡ **Firefox Extension**:
+  - One-click **Copy-Post** functionality.
+  - Reduces manual posting effort by **70%**.
+
+- 🎯 Real-time content generation with minimal UI interaction.
+
+- 🌐 **Deployed on Vercel** and **live on the Firefox Store**.
+
+---
+
+## 📦 Getting Started
+
+### 1. Clone the Repo
+
+```bash
+git clone https://github.com/yourusername/postpilot.git
+cd postpilot
+```
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the App Locally
+
+```bash
+npm run dev
+```
+
+---
