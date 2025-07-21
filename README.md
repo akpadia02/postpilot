@@ -9,8 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://postpilot-nu.vercel.app/">🔗 Live Demo</a> • 
-  <a href="https://github.com/akshaypadia/postpilot">📂 GitHub Repo</a>
+  <a href="https://postpilot-nu.vercel.app/">🔗 Live Demo</a>
 </p>
 ---
 
